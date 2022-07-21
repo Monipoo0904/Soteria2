@@ -116,6 +116,9 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
         
         map.addAnnotation(annotation)
         
+        
+        
+        
         //code for map annotation that user can add
         let LongTap = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongTap(gestureRecognizer:)))
         self.map.addGestureRecognizer(LongTap)
@@ -132,28 +135,6 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
     
   
   
-    //objc for map
-    func handleLongTap(gestureRecognizer: UILongPressGestureRecognizer){
-        if gestureRecognizer.state != UIGestureRecognizer.State.ended{
-            let touchLocation = gestureRecognizer.location(in: map)
-            let locationCoordinate = map.convert(touchLocation, toCoordinateFrom: map)
-            print("Added alert at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)")
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = locationCoordinate
-            map.addAnnotation(annotation)
-            //annotationView.markerTintColor = UIColor.blue
-           
-          
-            
-            annotation.title = "Added alert at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)"
-            
-     
-        }
-        //
-        if gestureRecognizer.state != UIGestureRecognizer.State.began{
-            return
-        }
-    }
         
     }
         
