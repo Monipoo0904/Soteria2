@@ -13,6 +13,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+//class MyPointAnnotation : MKPointAnnotation {
+//    var pinTintColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+//}
+
 class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate{
     //map
         
@@ -49,18 +53,24 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
                                             
      }
     
+  
+  
     //objc
     @objc func handleLongTap(gestureRecognizer: UILongPressGestureRecognizer){
         if gestureRecognizer.state != UIGestureRecognizer.State.ended{
             let touchLocation = gestureRecognizer.location(in: map)
             let locationCoordinate = map.convert(touchLocation, toCoordinateFrom: map)
-            print("tapped at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)")
+            print("Added alert at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)")
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationCoordinate
-            
             map.addAnnotation(annotation)
+            //annotationView.markerTintColor = UIColor.blue
+           
+          
             
-            annotation.title = "tapped at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)"
+            annotation.title = "Added alert at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)"
+            
+         
 
 
         
@@ -70,11 +80,23 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
             return
         }
     }
-    
- 
-    }
+}
 
-    
+//func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//       var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation") as? MKPinAnnotationView
+//
+//       if annotationView == nil {
+//           annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myAnnotation")
+//       } else {
+//           annotationView?.annotation = annotation
+//       }
+//
+//       if let annotation = annotation as? MyPointAnnotation {
+//           annotationView?.pinTintColor = annotation.pinTintColor
+//       }
+//
+//       return annotationView
+//   }
 
 
 //extension
