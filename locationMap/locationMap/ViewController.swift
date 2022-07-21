@@ -70,10 +70,7 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
             
             annotation.title = "Added alert at Latitude: \(locationCoordinate.latitude) and Longitude: \(locationCoordinate.longitude)"
             
-         
-
-
-        
+     
         }
         //
         if gestureRecognizer.state != UIGestureRecognizer.State.began{
