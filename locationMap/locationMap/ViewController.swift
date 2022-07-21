@@ -94,6 +94,12 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
     @IBOutlet var map: MKMapView!
     
     override func viewDidLoad() {
+//        
+//                //code for map annotation that user can add
+//                let LongTap = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongTap(gestureRecognizer:)))
+//                self.map.addGestureRecognizer(LongTap)
+//                
+               
         
         //map points
          super.viewDidLoad()
@@ -119,9 +125,9 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
         
         
         
-        //code for map annotation that user can add
-        let LongTap = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongTap(gestureRecognizer:)))
-        self.map.addGestureRecognizer(LongTap)
+//        //code for map annotation that user can add
+//        let LongTap = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongTap(gestureRecognizer:)))
+//        self.map.addGestureRecognizer(LongTap)
         
         
         //menu stuff
