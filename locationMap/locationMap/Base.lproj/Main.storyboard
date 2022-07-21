@@ -46,16 +46,51 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="lJb-Bd-6w3">
-                                <rect key="frame" x="0.0" y="114" width="414" height="678"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ea-ar-GJm">
-                                <rect key="frame" x="362" y="54" width="32" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title=""/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BX9-iM-bHn">
+                                <rect key="frame" x="302" y="57" width="143.5" height="171"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ea-ar-GJm">
+                                        <rect key="frame" x="53.5" y="0.0" width="36.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="m"/>
+                                        <connections>
+                                            <action selector="menu:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rMo-WQ-xhU"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsy-nx-P5E">
+                                        <rect key="frame" x="45.5" y="35" width="52.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Map"/>
+                                        <connections>
+                                            <action selector="alloptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GfU-gV-OQS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwx-s4-Abf">
+                                        <rect key="frame" x="26" y="70" width="92" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Resources"/>
+                                        <connections>
+                                            <action selector="alloptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5B-3W-ZP4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-Am-dLH">
+                                        <rect key="frame" x="0.0" y="105" width="143.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Emergency Button"/>
+                                        <connections>
+                                            <action selector="alloptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pwk-z0-OcY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIp-Xh-4d1">
+                                        <rect key="frame" x="44.5" y="140" width="54.5" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Chat"/>
+                                        <connections>
+                                            <action selector="alloptions:" destination="BYZ-38-t0r" eventType="touchUpInside" id="42J-rM-RuU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,6 +98,11 @@
                     <navigationItem key="navigationItem" id="DJW-d0-Zq9"/>
                     <connections>
                         <outlet property="map" destination="lJb-Bd-6w3" id="oe7-Xo-BQ7"/>
+                        <outlet property="menuNotPressed" destination="0ea-ar-GJm" id="hzO-Ig-Fw0"/>
+                        <outletCollection property="allOptions" destination="lsy-nx-P5E" collectionClass="NSMutableArray" id="TP9-oD-xsD"/>
+                        <outletCollection property="allOptions" destination="Jwx-s4-Abf" collectionClass="NSMutableArray" id="bvr-Wo-y5g"/>
+                        <outletCollection property="allOptions" destination="HyT-Am-dLH" collectionClass="NSMutableArray" id="shu-ga-Ydt"/>
+                        <outletCollection property="allOptions" destination="nIp-Xh-4d1" collectionClass="NSMutableArray" id="X0c-mD-4ZM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -81,8 +121,12 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra3-25-Lbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="lJb-Bd-6w3">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </mapView>
             </objects>
-            <point key="canvasLocation" x="569" y="105"/>
+            <point key="canvasLocation" x="568.1159420289855" y="104.46428571428571"/>
         </scene>
     </scenes>
     <resources>

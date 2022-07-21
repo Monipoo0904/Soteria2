@@ -13,11 +13,80 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
+
+import UIKit
+//class ViewController: UIViewController {
+//    @IBOutlet weak var menuNotPressed: UIButton!
+//
+//    @IBOutlet var allOptions: [UIButton]!
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        menuNotPressed.layer.cornerRadius = menuNotPressed.frame.height / 2
+//        allOptions.forEach {(btn) in
+//            btn.layer.cornerRadius = btn.frame.height / 2
+//            btn.isHidden = true
+//            btn.alpha = 0
+//
+//
+//
+//        }
+//
+//
+//        // Do any additional setup after loading the view.
+//    }
+//    @IBAction func menu(_ sender: UIButton) {
+//        allOptions.forEach {(btn) in
+//            UIView.animate(withDuration: 0.7) {
+//                btn.isHidden = !btn.isHidden
+//                btn.alpha = btn.alpha == 0 ? 1 : 0
+//                btn.layoutIfNeeded()
+//            }
+//        }
+//
+//
+//}
+//    @IBAction func optionPressed(_ sender: UIButton) {
+//        if let btnL1 = sender.titleLabel?.text {
+//       print(btnL1)
+//}
+//    }
+//
+//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //class MyPointAnnotation : MKPointAnnotation {
 //    var pinTintColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
 //}
 
 class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDelegate{
+    
+    //menu vars
+    @IBOutlet weak var menuNotPressed: UIButton!
+    
+    @IBOutlet var allOptions: [UIButton]!
+    
+    
+    
     //map
         
     // Set initial location to Howard
@@ -50,13 +119,21 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
         //code for map annotation that user can add
         let LongTap = UILongPressGestureRecognizer(target: self, action: #selector(ViewController.handleLongTap(gestureRecognizer:)))
         self.map.addGestureRecognizer(LongTap)
+        
+        
+        //menu stuff
+        menuNotPressed.layer.cornerRadius = menuNotPressed.frame.height / 2
+        allOptions.forEach {(btn) in
+            btn.layer.cornerRadius = btn.frame.height / 2
+            btn.isHidden = true
+            btn.alpha = 0
                                             
      }
     
   
   
-    //objc
-    @objc func handleLongTap(gestureRecognizer: UILongPressGestureRecognizer){
+    //objc for map
+    func handleLongTap(gestureRecognizer: UILongPressGestureRecognizer){
         if gestureRecognizer.state != UIGestureRecognizer.State.ended{
             let touchLocation = gestureRecognizer.location(in: map)
             let locationCoordinate = map.convert(touchLocation, toCoordinateFrom: map)
@@ -77,7 +154,28 @@ class ViewController: UIViewController, MKMapViewDelegate, UIGestureRecognizerDe
             return
         }
     }
+        
+    }
+        
+        
+    @IBAction func alloptions(_ sender: UIButton) {
+        if let btnL1 = sender.titleLabel?.text {
+       print(btnL1)
 }
+}
+    @IBAction func menu(_ sender: UIButton) {
+        allOptions.forEach {(btn) in
+            UIView.animate(withDuration: 0.7) {
+                btn.isHidden = !btn.isHidden
+                btn.alpha = btn.alpha == 0 ? 1 : 0
+                btn.layoutIfNeeded()
+            }
+        }
+    
+    }
+}
+    
+
 
 //func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
 //       var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "myAnnotation") as? MKPinAnnotationView
